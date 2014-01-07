@@ -1,0 +1,21 @@
+api:
+	{
+		method: {
+			require:	["authtoken","uuid"],
+			fn:			function(core, params) {
+				
+			}
+		}
+	}
+	
+Plugins
+	{
+		method:	{
+			before:	{
+				require:	[],
+				fn:			function() {
+					
+				}
+			}
+		}
+	}

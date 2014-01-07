@@ -1,0 +1,1579 @@
+Options { timeout: 120000, online: 0, threads: 1, debug_mode: 1, mysql: 1 }
+New worker:  16032
+Using MySQL with local settings.
+MySQL: Connected.
+
+**********************************
+*****       APIs found       *****
+++ achievement
+[31mcreate[90m------------------[39m[35m[sys][90m-----------[39m[31m [33m[data][0m
+[31munlock[90m------------------[39m[35m[sys][90m-----------[39m[31m [33m[alias, user][0m
+[31mfind[90m--------------------[39m[35m[sys][90m-----------[39m[31m[0m
+[31mget[90m---------------------[39m[35m[authtoken][90m-----[39m[31m [33m[type][0m
+[31mgetnew[90m------------------[39m[35m[authtoken][90m-----[39m[31m[0m
+++ client
+[31mcreate[90m------------------[39m[35m[sys][90m-----------[39m[31m[0m
+[32mfind[90m--------------------[39m[90m----------------[39m[32m[0m
+[32mpaginate[90m----------------[39m[90m----------------[39m[32m[0m
+++ game
+[31mregister[90m----------------[39m[35m[authtoken][90m-----[39m[31m [33m[alias, live][0m
+[31mstart[90m-------------------[39m[35m[authtoken][90m-----[39m[31m [33m[token][0m
+[31msendscore[90m---------------[39m[35m[authtoken][90m-----[39m[31m [33m[token, score, time, level, sent][0m
+[31mend[90m---------------------[39m[35m[authtoken][90m-----[39m[31m [33m[token][0m
+[31mgetPosition[90m-------------[39m[35m[authtoken][90m-----[39m[31m [33m[token][0m
+[32mranking[90m-----------------[39m[90m----------------[39m[32m [33m[race][0m
+[31mchallenge[90m---------------[39m[35m[authtoken][90m-----[39m[31m [33m[race, fbreq, live][0m
+[31macceptChallenge[90m---------[39m[35m[authtoken][90m-----[39m[31m [33m[challenge][0m
+[31mdeclineChallenge[90m--------[39m[35m[authtoken][90m-----[39m[31m [33m[challenge][0m
+++ geo
+[32mencode[90m------------------[39m[90m----------------[39m[32m [33m[location][0m
+++ log
+[31mfbinvite[90m----------------[39m[35m[authtoken][90m-----[39m[31m [33m[fbreq][0m
+++ race
+[31mcreate_client[90m-----------[39m[35m[sys][90m-----------[39m[31m[0m
+[31mcreate[90m------------------[39m[35m[sys][90m-----------[39m[31m [33m[client, data][0m
+[32mpaginate[90m----------------[39m[90m----------------[39m[32m[0m
+[32mupcoming[90m----------------[39m[90m----------------[39m[32m[0m
+[32mpast[90m--------------------[39m[90m----------------[39m[32m[0m
+[32mget[90m---------------------[39m[90m----------------[39m[32m[0m
+[31mregister[90m----------------[39m[35m[authtoken][90m-----[39m[31m [33m[race][0m
+[31mis_registered[90m-----------[39m[35m[authtoken][90m-----[39m[31m [33m[race][0m
+[32mget_registered[90m----------[39m[90m----------------[39m[32m [33m[race][0m
+++ user
+[32mvalidateAuthToken[90m-------[39m[90m----------------[39m[32m [33m[authtoken][0m
+[32mgetAuthToken[90m------------[39m[90m----------------[39m[32m [33m[user][0m
+[32mcreate[90m------------------[39m[90m----------------[39m[32m [33m[data][0m
+[32mfacebookLogin[90m-----------[39m[90m----------------[39m[32m [33m[fbuid, fbtoken][0m
+[32mfind[90m--------------------[39m[90m----------------[39m[32m[0m
+[31mget[90m---------------------[39m[35m[authtoken][90m-----[39m[31m[0m
+[32mpaginate[90m----------------[39m[90m----------------[39m[32m[0m
+[32monline[90m------------------[39m[90m----------------[39m[32m[0m
+[31msetLocation[90m-------------[39m[35m[authtoken][90m-----[39m[31m [33m[location][0m
+[31mset[90m---------------------[39m[35m[sys][90m-----------[39m[31m [33m[data, query][0m
+[31mupdate[90m------------------[39m[35m[authtoken][90m-----[39m[31m[0m
+[31msetMetas[90m----------------[39m[35m[authtoken][90m-----[39m[31m [33m[data][0m
+[31mgetMetas[90m----------------[39m[35m[sys][90m-----------[39m[31m [33m[query][0m
+[31msetData[90m-----------------[39m[35m[authtoken][90m-----[39m[31m [33m[data][0m
+[31mgetChallenges[90m-----------[39m[35m[authtoken][90m-----[39m[31m[0m
+[31mgetFriends[90m--------------[39m[35m[authtoken][90m-----[39m[31m[0m
+[31mlog[90m---------------------[39m[35m[authtoken][90m-----[39m[31m [33m[data][0m
+++ api
+[32mgendoc[90m------------------[39m[90m----------------[39m[32m[0m
+++ sys
+[31mimportRaces[90m-------------[39m[35m[sys][90m-----------[39m[31m[0m
+[32mtest[90m--------------------[39m[90m----------------[39m[32m[0m
+[31mimportUsers[90m-------------[39m[35m[sys][90m-----------[39m[31m[0m
+
+**********************************
+*****   Auth methods found   *****
+++ default
+-- authtoken
+-- sys
+
+**********************************
+***** Output formaters found *****
+-- b64
+-- fjson
+-- json
+-- jsonp
+-- raw
+
+Old race init
+API mapped. Starting server...
+API server listening on port 8080
+executing [32mclient.find[0m with parameters: { uuid: 
+   { '$in': 
+      [ '548321a3-c95c-43dd-b519-94e388c72412',
+        '1a0239ab-5001-44e9-a9c5-3ddd346fb796',
+        '86d739ed-c884-421f-b27d-833dec7de2a1',
+        '44903933-635c-435c-8d5f-b8b2f1e97c73',
+        'f201565e-86a2-489f-9f59-d9394ec7a0b7',
+        '62d8456d-c083-4296-ad95-4fff12d36542',
+        'e0b1ae6f-11b8-4b8f-b1cc-9b393e70fe24',
+        '5e74bdd6-9dde-488c-ae78-9d96fad769a0',
+        '8add0e49-8b81-427f-8229-55a753c1bc57',
+        '35dae11f-4a18-4b1f-8f5d-f37c920286c0',
+        '3dad2655-a724-4355-8ace-878fd09c1848',
+        'cc06d982-aabc-4e34-908b-349c97425bbf',
+        'f9719a2c-04da-4bdf-b8b2-93de71af81b9',
+        'be141a97-ecf7-4461-a730-9e077c1c12ee',
+        '6d5ebfe9-c2db-428e-a8b5-76019bb8c600',
+        '7065f46e-111e-4e73-9f2c-50343da32030',
+        'ec9022cd-1a46-4bdb-98e2-8af19b35fdbf' ] } }
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b' }
+executing [32muser.validateAuthToken[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6',
+  __authcheck: 'sys540f40c9968814199ec7ca847ec45' }
+executing [32muser.find[0m with parameters: { query: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' } }
+executing [32muser.setData[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  data: { recent_activity: Thu Nov 14 2013 17:22:09 GMT-0200 (E. South America Daylight Time) } }
+[90mPOST /user/validateAuthToken/json [32m200 [90m13ms - 644b[0m
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b', upcoming: '1' }
+executing [32muser.setData[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  data: { recent_activity: Thu Nov 14 2013 17:22:09 GMT-0200 (E. South America Daylight Time) },
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+executing [32mrace.paginate[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  upcoming: 1,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6',
+  __authcheck: 'sys540f40c9968814199ec7ca847ec45' }
+executing [32muser.find[0m with parameters: { query: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' } }
+executing [32mclient.find[0m with parameters: { uuid: { '$in': [ 'ec9022cd-1a46-4bdb-98e2-8af19b35fdbf' ] } }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'With over 600 different cheeses, Fairway is a cheese lovers paradise. Match the cheese name with its appropriate image.',
+  list: 
+   [ { label: 'Asiago', image: 'races/images/fairway/02/01.jpg' },
+     { label: 'Gruyere', image: 'races/images/fairway/02/02.jpg' },
+     { label: 'Parmesan', image: 'races/images/fairway/02/03.jpg' },
+     { label: 'Havarti', image: 'races/images/fairway/02/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'redhook',
+  display: 'doorekh',
+  hint: 'Which Fairway location was awarded the U.S. government prestigious Energy Chip Award?' }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/fairway/04/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Like', 'No', 'Other', 'Market' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q7: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  sep: ' ',
+  words: 
+   [ 'Cheese|Cake',
+     'Meat|Ball',
+     'Sword|Fish',
+     'Chick|Peas',
+     'Pine|Apple' ],
+  label: 'Connect the the words to create tasty foods you would find at Fairway.' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+aggregating this: [
+    {
+        "$match": {
+            "uid": "d3f44b4141142d7a31d94afb4430ffa6",
+            "live": false
+        }
+    },
+    {
+        "$group": {
+            "_id": "$race",
+            "total": {
+                "$max": "$result.total"
+            }
+        }
+    }
+]
+[90mPOST /race/paginate/json [32m200 [90m25ms - 21.28kb[0m
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  type: 'locked',
+  grouped: '0' }
+executing [32machievement.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  type: 'locked',
+  grouped: 0 }
+executing [32machievement.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  type: 'locked',
+  grouped: 0,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+[90mPOST /achievement/get/json [32m200 [90m8ms - 3.94kb[0m
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  type: 'unlocked',
+  grouped: '0' }
+executing [32machievement.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  type: 'unlocked',
+  grouped: 0 }
+executing [32machievement.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  type: 'unlocked',
+  grouped: 0,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+[90mPOST /achievement/get/json [32m200 [90m6ms - 4.26kb[0m
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b' }
+executing [32muser.getChallenges[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b' }
+executing [32muser.getChallenges[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+executing [32muser.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  fields: { fbuid: true } }
+executing [32muser.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  fields: { fbuid: true },
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+executing [32muser.find[0m with parameters: { query: { uid: { '$in': [] } } }
+[90mPOST /user/getChallenges/json [32m200 [90m14ms - 101b[0m
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b', started: '1' }
+executing [32muser.getChallenges[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b', started: 1 }
+executing [32muser.getChallenges[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  started: 1,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+executing [32muser.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  fields: { fbuid: true } }
+executing [32muser.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  fields: { fbuid: true },
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+executing [32muser.find[0m with parameters: { query: { uid: { '$in': [] } } }
+[90mPOST /user/getChallenges/json [32m200 [90m13ms - 2b[0m
+[35m data(params):[37m { authtoken: '7b638b56948f2c3b496c72f3d7454d9b', perpage: '16' }
+executing [32muser.getFriends[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b', perpage: 16 }
+executing [32muser.getFriends[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  perpage: 16,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+executing [32muser.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  perpage: 16,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6',
+  fields: { fbuid: true, fbfriends: true } }
+executing [32muser.get[0m with parameters: { authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  perpage: 16,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6',
+  fields: { fbuid: true, fbfriends: true } }
+executing [32muser.paginate[0m with parameters: { query: { fbuid: { '$in': [Object] } } }
+[35m Paginate query:[37m {
+    "collection": "users",
+    "query": {
+        "fbuid": {
+            "$in": [
+                202019,
+                202644,
+                202728,
+                209525,
+                614014,
+                1206669,
+                1214991,
+                1227142,
+                1404390,
+                2900336,
+                4600896,
+                6605136,
+                7001742,
+                7409883,
+                11612502,
+                13300927,
+                13810123,
+                16112171,
+                16112523,
+                16501667,
+                16800103,
+                21711059,
+                28400224,
+                28400447,
+                28400616,
+                28401329,
+                28401823,
+                28401996,
+                28402118,
+                28402484,
+                28402569,
+                28404540,
+                28404711,
+                28404771,
+                28404870,
+                28405036,
+                28405104,
+                28405193,
+                28405592,
+                28406707,
+                28408232,
+                28408346,
+                28408593,
+                28408619,
+                28408830,
+                28409062,
+                28409414,
+                28409775,
+                36105907,
+                37004055,
+                39805101,
+                44801361,
+                49902088,
+                57601232,
+                61301132,
+                68701144,
+                133700340,
+                134500581,
+                202909206,
+                279201060,
+                500056082,
+                500159162,
+                501666123,
+                502719262,
+                502965343,
+                503574578,
+                504050552,
+                506493145,
+                506631233,
+                507556216,
+                507737328,
+                508855939,
+                508935801,
+                509290176,
+                511905060,
+                512949036,
+                513668803,
+                515253737,
+                515616586,
+                516483215,
+                516534566,
+                526496686,
+                532350927,
+                535681909,
+                536857673,
+                537157266,
+                538640399,
+                539315110,
+                539481426,
+                540361280,
+                543736784,
+                543953866,
+                547595373,
+                550453833,
+                551562233,
+                554834951,
+                555241317,
+                556048416,
+                556955482,
+                557936887,
+                561281376,
+                561385439,
+                562699510,
+                563287213,
+                563624993,
+                564685304,
+                566522280,
+                567457468,
+                569276744,
+                571222020,
+                572265385,
+                572601768,
+                572642990,
+                573023729,
+                574911422,
+                576024840,
+                576500429,
+                576837686,
+                577928857,
+                578119247,
+                580140338,
+                583516105,
+                587446927,
+                591647323,
+                592346304,
+                594776827,
+                595485027,
+                595793915,
+                595910726,
+                597998255,
+                599653665,
+                601983219,
+                602132589,
+                602776390,
+                602949354,
+                603557080,
+                603579862,
+                607263857,
+                609250072,
+                609352187,
+                610766959,
+                613055256,
+                614203083,
+                614595890,
+                614638541,
+                615525200,
+                618426362,
+                619745671,
+                620281038,
+                620497006,
+                621148098,
+                622171889,
+                622497197,
+                623402015,
+                623756289,
+                623987892,
+                625667929,
+                626032642,
+                626235569,
+                626802696,
+                627564831,
+                633246129,
+                636288587,
+                636946602,
+                640001308,
+                641946410,
+                643816216,
+                643880536,
+                645588108,
+                646886953,
+                647739115,
+                652363993,
+                654354937,
+                656094718,
+                656385776,
+                659901936,
+                666032420,
+                668364894,
+                673510725,
+                674173059,
+                674543138,
+                674763277,
+                675305408,
+                676820752,
+                680875480,
+                683353759,
+                683547589,
+                684859423,
+                686805129,
+                688337836,
+                688910216,
+                690500144,
+                691807348,
+                692293200,
+                692399224,
+                692540602,
+                699065503,
+                700590808,
+                701400511,
+                702100121,
+                703896040,
+                704067763,
+                706247883,
+                706801892,
+                707510071,
+                709117602,
+                711087061,
+                712954842,
+                713719219,
+                716776537,
+                717956472,
+                718509230,
+                727144855,
+                727296387,
+                730157115,
+                730730575,
+                731047539,
+                732585093,
+                733768282,
+                737943735,
+                739334382,
+                742731981,
+                744013937,
+                745070003,
+                746265293,
+                750180194,
+                752614405,
+                754396227,
+                755050520,
+                756426256,
+                758960366,
+                759740136,
+                759844818,
+                759950095,
+                760040071,
+                760045572,
+                760050079,
+                760330541,
+                760825410,
+                761100197,
+                761850506,
+                762529534,
+                762685555,
+                762743484,
+                764625429,
+                765300537,
+                765645436,
+                765695136,
+                765755007,
+                766255606,
+                766570243,
+                766570491,
+                766630314,
+                766690601,
+                767235242,
+                767305651,
+                767370577,
+                767470153,
+                767875130,
+                767995486,
+                768000486,
+                768610346,
+                768820022,
+                770560054,
+                771595430,
+                772470433,
+                772868383,
+                776637258,
+                777159999,
+                777690304,
+                778937287,
+                780715704,
+                783350467,
+                784277971,
+                786276014,
+                787389993,
+                789747845,
+                794434431,
+                794499892,
+                796095400,
+                800703205,
+                801569306,
+                803965290,
+                805220653,
+                805669577,
+                808160108,
+                810122706,
+                820537435,
+                829180233,
+                833418647,
+                842120706,
+                844270191,
+                846490272,
+                846870098,
+                857750077,
+                875445299,
+                875590726,
+                876675471,
+                877755393,
+                880015042,
+                880730060,
+                880895564,
+                882275474,
+                884515603,
+                885690033,
+                1010467721,
+                1024263141,
+                1027967169,
+                1031583893,
+                1032850934,
+                1039784547,
+                1051011852,
+                1059236357,
+                1059919857,
+                1061507605,
+                1062102512,
+                1066623872,
+                1068220590,
+                1070342128,
+                1072729055,
+                1073731020,
+                1079127681,
+                1082222413,
+                1091135345,
+                1134196291,
+                1135491144,
+                1152567856,
+                1158447493,
+                1173282114,
+                1189285136,
+                1203323317,
+                1207246649,
+                1211306168,
+                1211430224,
+                1232397514,
+                1241246924,
+                1247343693,
+                1255444911,
+                1271431300,
+                1272901765,
+                1285156611,
+                1298622904,
+                1302802717,
+                1310055835,
+                1313440993,
+                1329444635,
+                1341895476,
+                1349730030,
+                1356260097,
+                1375650003,
+                1377034191,
+                1389935587,
+                1395780996,
+                1406321307,
+                1408471689,
+                1409448671,
+                1409818103,
+                1416559692,
+                1429532469,
+                1438588087,
+                1462920085,
+                1473450281,
+                1476417690,
+                1482647249,
+                1490632978,
+                1495256440,
+                1517332515,
+                1517914755,
+                1527692596,
+                1557155700,
+                1569280602,
+                1569530427,
+                1597154504,
+                1644167137,
+                1671056983,
+                1674074118,
+                1677474286,
+                1691003605,
+                1706845243,
+                1729168129,
+                100000012904258,
+                100000029688517,
+                100000103374450,
+                100000113809685,
+                100000119299303,
+                100000257839134,
+                100000305575627,
+                100000400203253,
+                100000428197842,
+                100000461406959,
+                100000517167580,
+                100000557201681,
+                100000631749702,
+                100000650179806,
+                100000651806962,
+                100000669908191,
+                100000694303970,
+                100001061806895,
+                100001153413643,
+                100001215581027,
+                100001378741021,
+                100001416289461,
+                100001425355715,
+                100001572644086,
+                100001941147534,
+                100001998860536,
+                100002072920845,
+                100002116435618,
+                100002123370759,
+                100002137613632,
+                100002273443002,
+                100002372085118,
+                100002640240325,
+                100002887505586,
+                100002915886915,
+                100003031660961,
+                100003268210589,
+                100003779512466,
+                100004107053111,
+                100005176240892,
+                100005741316976
+            ]
+        }
+    },
+    "perpage": 5,
+    "page": 1
+}
+[35m response:[37m {
+    "pagination": {
+        "perpage": 5,
+        "total": 12,
+        "pages": 3,
+        "current": 1
+    },
+    "data": [
+        {
+            "avatar": "images/9_avatar_large.png",
+            "register_date": "2013-06-21T00:43:29.000Z",
+            "reminder_text": true,
+            "reminder_email": true,
+            "firstname": "David",
+            "lastname": "Metz",
+            "email": "davidwarrenmetz@yahoo.com",
+            "fbuid": 100001425355715,
+            "uid": "20ba9d19399c4b1d072b373d893509d8",
+            "_id": "5283da5295d18a0000000020"
+        },
+        {
+            "avatar": "images/8_avatar_large.png",
+            "register_date": "2013-06-22T03:02:38.000Z",
+            "reminder_text": true,
+            "reminder_email": true,
+            "firstname": "Peter",
+            "lastname": "Kazazes",
+            "email": "peter@pkazz.com",
+            "fbuid": 1438588087,
+            "uid": "bd7a5f0148f5f17aff462974a3f7990a",
+            "_id": "5283da5395d18a00000001fa"
+        },
+        {
+            "avatar": "images/3_avatar_large.png",
+            "register_date": "2013-06-26T15:53:42.000Z",
+            "reminder_text": true,
+            "reminder_email": true,
+            "firstname": "Cian-GrangÃ©",
+            "lastname": "Benjamin",
+            "email": "ciangrangebenjamin@yahoo.fr",
+            "fbuid": 620281038,
+            "uid": "725da9dc731660e3701d5c7452b74db1",
+            "_id": "5283da5395d18a0000000205"
+        },
+        {
+            "_id": "5283da5495d18a0000000421",
+            "avatar": "users/avatars/55/55_large.png",
+            "dob": 329155200,
+            "email": "millinet@gmail.com",
+            "fbuid": 100003268210589,
+            "firstname": "Isabelle",
+            "gender": 2,
+            "lastname": "Lepez",
+            "location": {
+                "levels": {
+                    "city": "SF",
+                    "state": "CA",
+                    "country": "US"
+                },
+                "address": "San Francisco, CA, USA",
+                "gps": {
+                    "lat": 37.7749295,
+                    "lng": -122.4194155
+                },
+                "geojson": {
+                    "type": "point",
+                    "coordinates": [
+                        -122.4194155,
+                        37.7749295
+                    ]
+                },
+                "public": "SF, CA (US)",
+                "timezone": "America/Los_Angeles"
+            },
+            "metadatas": {
+                "age": 33,
+                "agerange": "25-35",
+                "city": "SF",
+                "country": "US",
+                "gender": "female",
+                "state": "CA",
+                "timezone": "America/Los_Angeles"
+            },
+            "register_date": "2013-06-22T10:02:34.000Z",
+            "reminder_email": true,
+            "reminder_text": true,
+            "uid": "aff3dacb2e5b6563776baf5672dcb7ec"
+        },
+        {
+            "_id": "5283da5595d18a0000000526",
+            "avatar": "images/7_avatar_large.png",
+            "dob": 463334400,
+            "email": "couwtekx@gmail.com",
+            "fbuid": 556048416,
+            "firstname": "Alexis",
+            "gender": 1,
+            "lastname": "Sebbane",
+            "location": {
+                "error": {
+                    "number": 0,
+                    "message": "The location \"Princeton, NJ US\" is invalid."
+                }
+            },
+            "metadatas": {
+                "age": 29,
+                "agerange": "25-35",
+                "gender": "male",
+                "timezone": null
+            },
+            "register_date": "2013-06-24T08:02:33.000Z",
+            "reminder_email": true,
+            "reminder_text": true,
+            "uid": "2b9b04f537782c8f4dcbffc6808c55d7"
+        }
+    ]
+}
+[90mPOST /user/getFriends/json [32m200 [90m49ms - 2.59kb[0m
+executing [32machievement.unlock[0m with parameters: { authtoken: 'sys540f40c9968814199ec7ca847ec45',
+  user: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' },
+  alias: 'friend_10' }
+>>> true
+executing [32machievement.unlock[0m with parameters: { authtoken: 'sys540f40c9968814199ec7ca847ec45',
+  user: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' },
+  alias: 'friend_10',
+  __auth: undefined }
+executing [32machievement.find[0m with parameters: { query: { alias: 'friend_10' },
+  authtoken: 'sys540f40c9968814199ec7ca847ec45' }
+>>> true
+executing [32machievement.find[0m with parameters: { query: { alias: 'friend_10' },
+  authtoken: 'sys540f40c9968814199ec7ca847ec45',
+  __auth: undefined }
+executing [32machievement.unlock[0m with parameters: { authtoken: 'sys540f40c9968814199ec7ca847ec45',
+  user: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' },
+  alias: 'friend_1' }
+>>> true
+executing [32machievement.unlock[0m with parameters: { authtoken: 'sys540f40c9968814199ec7ca847ec45',
+  user: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' },
+  alias: 'friend_1',
+  __auth: undefined }
+executing [32machievement.find[0m with parameters: { query: { alias: 'friend_1' },
+  authtoken: 'sys540f40c9968814199ec7ca847ec45' }
+>>> true
+executing [32machievement.find[0m with parameters: { query: { alias: 'friend_1' },
+  authtoken: 'sys540f40c9968814199ec7ca847ec45',
+  __auth: undefined }
+[35m unlock multi(friend_10):[37m false
+[35m data(params):[37m { uid: 'd3f44b4141142d7a31d94afb4430ffa6',
+  authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  past: '1',
+  options: { perpage: '16' } }
+[35m unlock multi(friend_1):[37m false
+[35m unlock count (friend_10):[37m 1 {
+    "collection": "achievements",
+    "query": {
+        "alias": "friend_10",
+        "uid": "d3f44b4141142d7a31d94afb4430ffa6"
+    }
+}
+[35m [>friend_10]:[37m { error: 
+   { number: 0,
+     message: 'The user already unlocked that achievement.' } }
+[35m unlock count (friend_1):[37m 1 {
+    "collection": "achievements",
+    "query": {
+        "alias": "friend_1",
+        "uid": "d3f44b4141142d7a31d94afb4430ffa6"
+    }
+}
+[35m [>friend_1]:[37m { error: 
+   { number: 0,
+     message: 'The user already unlocked that achievement.' } }
+executing [32mrace.paginate[0m with parameters: { uid: 'd3f44b4141142d7a31d94afb4430ffa6',
+  authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  past: 1,
+  options: { perpage: '16' },
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6',
+  __authcheck: 'sys540f40c9968814199ec7ca847ec45' }
+executing [32muser.find[0m with parameters: { query: { uid: 'd3f44b4141142d7a31d94afb4430ffa6' } }
+executing [32mclient.find[0m with parameters: { uuid: 
+   { '$in': 
+      [ '44903933-635c-435c-8d5f-b8b2f1e97c73',
+        '1a0239ab-5001-44e9-a9c5-3ddd346fb796',
+        '86d739ed-c884-421f-b27d-833dec7de2a1',
+        '6d5ebfe9-c2db-428e-a8b5-76019bb8c600',
+        'be141a97-ecf7-4461-a730-9e077c1c12ee',
+        'f9719a2c-04da-4bdf-b8b2-93de71af81b9',
+        '3dad2655-a724-4355-8ace-878fd09c1848',
+        '35dae11f-4a18-4b1f-8f5d-f37c920286c0',
+        '8add0e49-8b81-427f-8229-55a753c1bc57',
+        '7065f46e-111e-4e73-9f2c-50343da32030',
+        '5e74bdd6-9dde-488c-ae78-9d96fad769a0',
+        '548321a3-c95c-43dd-b519-94e388c72412',
+        'e0b1ae6f-11b8-4b8f-b1cc-9b393e70fe24' ] } }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  sep: ': ',
+  words: 
+   [ 'House Stark|Winter is Coming',
+     'House Greyjoy|We Do Not Sow',
+     'House Lannister|Hear Me Roar',
+     'House Tyrell|Growing Strong',
+     'House Targaryen|Fire and Blood' ],
+  label: 'All the first families of Westeros boast proud traditions and house loyalty.  Match the House with their words: Make sure you choose house first then their motto:' }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/gameofthrones/03/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'Tyrion',
+  display: 'notiry',
+  hint: 'He may be small, but he can out-think, and out-insult his more statuesque family members. Name this Lannister.' }
+-----------------------------------------------------------------
+_settings { time: 180,
+  label: 'In the premiere episode of Game of Thrones, the Stark children discover a litter of Direwolves. Find the following direwolves below',
+  words: [ 'Lady', 'Nymeria', 'Summer', 'Ghost' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Match the surname to the picture:',
+  list: 
+   [ { label: 'Stark',
+       image: 'races/images/gameofthrones/11/01.jpg' },
+     { label: 'Baratheon',
+       image: 'races/images/gameofthrones/11/02.jpg' },
+     { label: 'Tyrell',
+       image: 'races/images/gameofthrones/11/03.jpg' },
+     { label: 'Snow', image: 'races/images/gameofthrones/11/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { label: 'Match the candy bar name with the proper image.',
+  list: 
+   [ { label: 'Charleston Chew',
+       image: 'races/images/peopleschoice/01/01.jpg' },
+     { label: 'Chunky',
+       image: 'races/images/peopleschoice/01/02.jpg' },
+     { label: 'Clark Bar',
+       image: 'races/images/peopleschoice/01/03.jpg' },
+     { label: 'Whatchamacallit',
+       image: 'races/images/peopleschoice/01/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  sep: ': ',
+  label: 'Connect the Author with their books. Author first, books second.',
+  words: 
+   [ 'A.A. Milne|Winnie the Pooh',
+     'C.S. Lewis|The Chronicles of Narnia',
+     'Lewis Caroll|Alice in Wonderland',
+     'Beatrix Potter|Peter Rabbit',
+     'J.K. Rowling|Harry Potter' ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/peopleschoice/03/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'bigfoot',
+  display: 'tfbgoio',
+  hint: 'Ape like creature that lives in the woods.' }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'FleetWit', 'Fun', 'Compete', 'Prizes' ] }
+-----------------------------------------------------------------
+_settings { label: 'Match the year with the birth of these inventions.',
+  list: 
+   [ { label: '1928', image: 'races/images/peopleschoice/08/01.jpg' },
+     { label: '1913', image: 'races/images/peopleschoice/08/02.jpg' },
+     { label: '1943', image: 'races/images/peopleschoice/08/03.jpg' },
+     { label: '1958', image: 'races/images/peopleschoice/08/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'Princess',
+  display: 'rpsinsce',
+  hint: 'What was the number one children\'s costume in 2012?' }
+-----------------------------------------------------------------
+_settings { time: 180,
+  map: 
+   { start: { x: 0, y: 0 },
+     end: { x: 10, y: 7 },
+     v: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ],
+     h: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  words: [ 'Scary', 'Costumes', 'Pumpkin', 'Candy' ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  label: 'Reconnect this classic horror movies titles.',
+  sep: ' ',
+  words: 
+   [ 'Rosemary\'s|Baby',
+     'The|Birds',
+     'Paranormal|Activity',
+     'Child\'s|Play',
+     'American|Psycho' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'You can’t have Halloween without Candy. The best selling candy in the proper order.',
+  list: 
+   [ { label: 'First', image: 'races/images/halloween/09/01.jpg' },
+     { label: 'Second', image: 'races/images/halloween/09/02.jpg' },
+     { label: 'Third', image: 'races/images/halloween/09/03.jpg' },
+     { label: 'Fourth', image: 'races/images/halloween/09/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'spooky',
+  display: 'oksoyp',
+  hint: 'This word is often used to describe Halloween costumes.' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q2: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Cumin', 'Dill', 'Salt', 'Thyme' ] }
+-----------------------------------------------------------------
+_settings { label: 'Everyone loves candy bars! Connect the candy bar name with the correct image.',
+  list: 
+   [ { label: 'Snickers',
+       image: 'races/images/allthingsfood/04/01.jpg' },
+     { label: 'Milky Way',
+       image: 'races/images/allthingsfood/04/02.jpg' },
+     { label: '3 Musketeers',
+       image: 'races/images/allthingsfood/04/03.jpg' },
+     { label: 'Baby Ruth',
+       image: 'races/images/allthingsfood/04/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  label: 'Fruits are yummy! Connect the the proper compound fruit names',
+  sep: ' ',
+  words: 
+   [ 'Dragon|Fruit',
+     'Goose|Berry',
+     'Man|Go',
+     'Pump|Kin',
+     'Water|Melon' ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/allthingsfood/07/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'Washington',
+  display: 'nnotwgsaih',
+  hint: 'This U.S state is the number 1 in apple production.' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'tickets',
+  display: 'ckttsei',
+  hint: 'Fandango revolutionized this aspect of the movie industry?' }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/fandango/03/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Tickets', 'Reviews', 'Movie', 'Times' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q7: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Fandango has been around since 2000. Connect the year with the movie release.',
+  list: 
+   [ { label: '2000', image: 'races/images/fandango/07/01.jpg' },
+     { label: '2002', image: 'races/images/fandango/07/02.jpg' },
+     { label: '2006', image: 'races/images/fandango/07/03.jpg' },
+     { label: '2010', image: 'races/images/fandango/07/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'atlantic',
+  display: 'lttaacin',
+  hint: 'What division are the Knicks in?' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q3: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Connect the category with the Knicks all time leader.',
+  list: 
+   [ { label: 'Offensive Rebounds',
+       image: 'races/images/nyknicks/04/01.jpg' },
+     { label: 'Defensive Rebounds',
+       image: 'races/images/nyknicks/04/02.jpg' },
+     { label: 'Field Goal %',
+       image: 'races/images/nyknicks/04/03.jpg' },
+     { label: '3 Points %',
+       image: 'races/images/nyknicks/04/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  words: [ 'Knicks', 'Tickets', 'Garden', 'Champs' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q6: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  sep: ' ',
+  label: 'Connect first and last names of NY Knicks players who have had their numbers retired.',
+  words: 
+   [ 'Walt|Frazier',
+     'Willis|Reed',
+     'Bill|Bradley',
+     'Earl|Monroe',
+     'Dick|McGuire' ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/nyknicks/08/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Rank each school according the most recent college rankings by U.S. News and World Report.',
+  list: 
+   [ { label: 'First', image: 'races/images/backtoschool/02/01.jpg' },
+     { label: 'Second',
+       image: 'races/images/backtoschool/02/02.jpg' },
+     { label: 'Third', image: 'races/images/backtoschool/02/03.jpg' },
+     { label: 'Fourth',
+       image: 'races/images/backtoschool/02/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Algebra', 'History', 'Art', 'Latin' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'buchanan',
+  display: 'nncbaauh',
+  hint: 'This person was the 15th U.S. president' }
+-----------------------------------------------------------------
+_settings { time: 180,
+  label: 'Click the labels to connect the first and last names of the famous literary characters.',
+  sep: ' ',
+  words: 
+   [ 'Dr.|Watson',
+     'Elizabeth|Bennett',
+     'Daisy|Buchanan',
+     'Willie|Stark',
+     'Katniss|Everdeen' ] }
+-----------------------------------------------------------------
+_settings { label: 'Connect the state name with its appropriate outline.',
+  list: 
+   [ { label: 'Wisconsin',
+       image: 'races/images/backtoschool/07/01.jpg' },
+     { label: 'Alabama',
+       image: 'races/images/backtoschool/07/02.jpg' },
+     { label: 'Oregon',
+       image: 'races/images/backtoschool/07/03.jpg' },
+     { label: 'Maine', image: 'races/images/backtoschool/07/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/backtoschool/09/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q2: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/mattel/03/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'Opinion',
+  display: 'nniioop',
+  hint: 'Apples to Apples is a hilarious game where everyone\'s what counts?' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  nx: 8,
+  ny: 8,
+  words: [ 'Mattel', 'Fun', 'Laugh', 'Family' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { '72': [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Labor day is known for BBQ’s and pies! In honor of Labor day match the pie names with the appropriate image.',
+  list: 
+   [ { label: 'Pecan', image: 'races/images/labordayrace/02/01.jpg' },
+     { label: 'Pudding',
+       image: 'races/images/labordayrace/02/02.jpg' },
+     { label: 'Blueberry',
+       image: 'races/images/labordayrace/02/03.jpg' },
+     { label: 'Blackberry',
+       image: 'races/images/labordayrace/02/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q3: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  nx: 9,
+  ny: 9,
+  words: [ 'BBQ', 'Summer', 'Sales', 'Labor' ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/labordayrace/05/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'Fireworks',
+  display: 'ikwsofrer',
+  hint: 'This display is a Labor Day tradition' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q7: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { pixelate: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'suitcase',
+  display: 'tcauessi',
+  hint: 'Effy\'s founder, Mr. Hematian, began selling his jewelry in 1979 out of this?' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q3: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Effy is renowned for its use of quality gemstones. Drag and match each name to the proper gemstone.',
+  list: 
+   [ { label: 'Sapphire', image: 'races/images/effy/04/01.png' },
+     { label: 'Peridot', image: 'races/images/effy/04/02.png' },
+     { label: 'Ruby', image: 'races/images/effy/04/03.png' },
+     { label: 'Topaz', image: 'races/images/effy/04/04.png' } ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/effy/memory/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  nx: 9,
+  ny: 9,
+  words: [ 'Ballisima', 'DiVersa', 'Gento', 'Gemma' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q7: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { label: 'Connect the correct Effy collection with the piece of jewelry.',
+  list: 
+   [ { label: 'DiVersa', image: 'races/images/effy/11/01.jpg' },
+     { label: 'Jardin', image: 'races/images/effy/11/02.jpg' },
+     { label: 'Signature', image: 'races/images/effy/11/03.jpg' },
+     { label: 'Gemma', image: 'races/images/effy/11/04.jpg' } ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q2: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'whisk',
+  display: 'kwish',
+  hint: 'You would use this in the kitchen' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Gaggle', 'Fun', 'Trivia', 'Smart' ] }
+-----------------------------------------------------------------
+_settings { time: 180,
+  map: 
+   { start: { x: 0, y: 0 },
+     end: { x: 11, y: 11 },
+     v: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ],
+     h: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'emerald',
+  display: 'deemalr',
+  hint: 'Identify this gemstone' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q3: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Shamrock', 'Lime', 'Lizard', 'Mint' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/greenrace/memory/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'Jamaica',
+  display: 'iajcaam',
+  hint: 'What Caribbean country\'s flag is green, black and gold?' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q2: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'rihanna',
+  display: 'nhniraa',
+  hint: 'What person currently has the most Twitter followers?' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/amityhall/memory/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q6: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q7: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180, words: [ 'Sunday', 'Yummy', 'Brunch' ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/lazysunday/memory/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q3: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'cheerios',
+  display: 'ochiesre',
+  hint: 'Many people start their day eating this popular breakfast food.' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  map: 
+   { start: { x: 0, y: 0 },
+     end: { x: 11, y: 11 },
+     v: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ],
+     h: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'chicago',
+  display: 'gcaihoc',
+  hint: 'There is nothing better than a lazy Sunday movie. Identify this best picture winner.' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q2: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'snickers',
+  display: 'ssknrice',
+  hint: 'Identify the brand with the following slogan: "Not going anywhere for awhile?"' }
+-----------------------------------------------------------------
+_settings { start: { x: 5, y: 5 },
+  end: { x: 5, y: 5 },
+  v: 
+   [ [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+     [ 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0 ],
+     [ 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1 ],
+     [ 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0 ],
+     [ 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0 ],
+     [ 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0 ],
+     [ 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0 ],
+     [ 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 ],
+     [ 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0 ],
+     [ 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1 ],
+     [ 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0 ],
+     [ 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1 ],
+     [ 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0 ],
+     [ 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0 ],
+     [ 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0 ],
+     [ 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0 ],
+     [ 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1 ],
+     [ 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0 ],
+     [ 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0 ],
+     [ 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0 ],
+     [ 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ],
+     [ 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0 ],
+     [ 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0 ],
+     [ 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0 ],
+     [ 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0 ] ],
+  h: 
+   [ [ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0 ],
+     [ 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0 ],
+     [ 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0 ],
+     [ 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1 ],
+     [ 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1 ],
+     [ 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 ],
+     [ 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0 ],
+     [ 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0 ],
+     [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1 ],
+     [ 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0 ],
+     [ 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0 ],
+     [ 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0 ],
+     [ 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1 ],
+     [ 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0 ],
+     [ 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0 ],
+     [ 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0 ],
+     [ 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0 ],
+     [ 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1 ],
+     [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 ],
+     [ 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1 ],
+     [ 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1 ],
+     [ 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1 ],
+     [ 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1 ],
+     [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1 ],
+     [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0 ] ] }
+-----------------------------------------------------------------
+_settings { quiz: [ { q5: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q6: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/beta3/memory/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'chipotle',
+  display: 'ehpcoilt',
+  hint: 'This was one of the top 3 fastest growing restaurants in 2012' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q10: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q1: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  imgpath: 'races/images/beta2/memory/',
+  imgw: 80,
+  imgh: 80 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q3: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q4: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'macarena',
+  display: 'caaanrme',
+  hint: 'This song was an international one hit wonder. Also, very popular on cruise ships and sport stadiums.' }
+-----------------------------------------------------------------
+_settings { quiz: [ { q6: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q7: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q8: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { quiz: [ { q9: [Object] } ], time: 180 }
+-----------------------------------------------------------------
+_settings { time: 180,
+  word: 'pokemon',
+  display: 'mkpnooe',
+  hint: 'Japanese role playing video game' }
+aggregating this: [
+    {
+        "$match": {
+            "uid": "d3f44b4141142d7a31d94afb4430ffa6",
+            "live": false
+        }
+    },
+    {
+        "$group": {
+            "_id": "$race",
+            "total": {
+                "$max": "$result.total"
+            }
+        }
+    }
+]
+[90mPOST /race/paginate/json [32m200 [90m48ms - 240.25kb[0m
+[35m data(params):[37m { callback: 'jQuery182007559694303417175_1384456930985',
+  authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  _: '1384456931183' }
+executing [32machievement.getnew[0m with parameters: { callback: 'jQuery182007559694303417175_1384456930985',
+  authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  _: 1384456931183 }
+executing [32machievement.getnew[0m with parameters: { callback: 'jQuery182007559694303417175_1384456930985',
+  authtoken: '7b638b56948f2c3b496c72f3d7454d9b',
+  _: 1384456931183,
+  __auth: 'd3f44b4141142d7a31d94afb4430ffa6' }
+[90mGET /achievement/getnew/jsonp?callback=jQuery182007559694303417175_1384456930985&authtoken=7b638b56948f2c3b496c72f3d7454d9b&_=1384456931183 [32m200 [90m6ms - 46b[0m

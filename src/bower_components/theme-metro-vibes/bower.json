@@ -1,0 +1,18 @@
+{
+	"name": "theme-metro-vibes",
+	"version": "1.5.2",
+	"main": [
+		"metro-vibes-css/js/libs/modernizr.min.js",
+		"metro-vibes-css/style.css",
+		"metro-vibes-css/js/general.js",
+		"metro-vibes-css/js/jquery.customInput.js",
+		"metro-vibes-css/js/custom.js",
+		"metro-vibes-css/js/jquery.powerful-placeholder.min.js",
+		"metro-vibes-css/js/progressbar.js",
+		"metro-vibes-css/js/libs/jquery-ui.min.js",
+		"metro-vibes-css/css/jquery-ui-1.8.20.custom.css",
+		"metro-vibes-css/js/jquery-ui.multidatespicker.js",
+		"metro-vibes-css/css/jquery-ui-1.8.20.custom.css",
+		"metro-vibes-css/css/jquery-ui-1.8.20.custom.css"
+	]
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>
+
+			API Doc &middot; Fleetwit
+
+		</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Documentation extras -->
+		<link href="http://getbootstrap.com/docs-assets/css/docs.css" rel="stylesheet">
+		<link href="http://getbootstrap.com/docs-assets/css/pygments-manni.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+		<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+		<![endif]-->
+
+		<!-- Favicons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/docs-assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/docs-assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/docs-assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/docs-assets/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+
+		<!-- Place anything custom after this. -->
+	</head>
+	<body>
+		<a class="sr-only" href="#content">Skip navigation</a>
+
+		<!-- Docs master nav -->
+		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="http://getbootstrap.com/" class="navbar-brand">API SERVER</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="http://www.fleetwit.com">Fleetwit.com</a>
+						</li>
+						<li class="active">
+							<a href="http://209.59.161.14:8080/api/gendoc/raw">API Doc</a>
+						</li>
+						<li>
+							<a href="mailto:julien@feetwit.com">Contact</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		
+		<!-- Docs page layout -->
+		<div class="bs-header" id="content">
+			<div class="container">
+				<h1>API Docs</h1>
+				<p>This doc is generated on demand.</p>
+			</div>
+		</div>
+
+		<div class="container bs-docs-container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="bs-sidebar hidden-print" role="complementary">
+						<ul class="nav bs-sidenav">
+							{{ for endpoint,methods in endpoints }}
+							<li>
+								<a href="#__{$endpoint}">{$endpoint}</a>
+								<ul class="nav">
+									{{ for method,specs in methods }}
+									<li><a href="#__{$endpoint}-{$method}"><span class="label {{if specs.status=="unstable"}}label-danger{{elseif specs.status=="stable"}}label-success{{else}}label-warning{{endif}}">{$specs.status}</span> {{if specs.auth}}*{{endif}}{$method}</a></li>
+									{{ endfor }}
+								</ul>
+							</li>
+							{{ endfor }}
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9" role="main">
+
+					{{ for endpoint,methods in endpoints }}
+					<!-- Dropdowns
+					================================================== -->
+					<div class="bs-docs-section">
+						<div class="page-header">
+							<h1 id="__{$endpoint}">{$endpoint|capitalize}</h1>
+						</div>
+						
+						
+						{{ for method,specs in methods }}
+						<div style="margin-bottom:100px;">
+							<h3 id="__{$endpoint}-{$method}">
+								{$method|capitalize}
+							</h3>
+							<p>
+								<span class="label label-default">version {$specs.version}</span>
+								<span class="label {{if specs.status=="unstable"}}label-danger{{elseif specs.status=="stable"}}label-success{{else}}label-warning{{endif}}">{$specs.status}</span>
+								{$specs.description}
+							</p>
+							
+							{{if specs.auth }}
+							<div class="bs-callout bs-callout-warning">
+								<h4>Authentication: <u>{$specs.auth}</u></h4>
+								{{ if specs.auth == "sys" }}
+								<p>
+									This is a system call, requiring a system token.<br />
+									use this authtoken: <code>{$systoken}</code>
+								</p>
+								{{ endif }}
+								{{ if specs.auth == "authtoken" }}
+								<p>
+									This api call requires a user authtoken, that can be obtained using 
+									<a href="#__user-create">user.create</a>, 
+									<a href="#__user-facebookLogin">user.facebookLogin</a> or 
+									<a href="#__user-GetAuthToken">user.GetAuthToken</a>
+								</p>
+								{{ endif }}
+							</div>
+							{{ endif }}
+							<div class="bs-callout bs-callout-danger">
+								<h4>Required</h4>
+								<p>
+									{{ for param in specs.require }}
+									<code>{$param}</code>
+									{{else }}
+									None.
+									{{ endfor }}
+								</p>
+						    </div>
+						    
+							<div class="bs-callout bs-callout-info">
+								<h4>Parameters:</h4>
+								<p>
+									{{ for label,value in specs.params }}
+										<code>{$label}</code>
+										{{ for label2,value2 in value }}
+										<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;<code>{$label2}</code>
+										{$value2}
+										{{ else }}
+										{$value}<br />
+										{{ endfor }}
+									{{ else }}
+									none.
+									{{ endfor }}
+								</p>
+							</div>
+<h4>PHP</h4>
+<pre>
+$response = apicall("{$endpoint}.{$method}",array({{if specs.auth}}
+{{if specs.auth == "sys"}}
+	
+	"authtoken"	=> "{$systoken}",{{endif}}{{if specs.auth == "authtoken"}}
+	
+	"authtoken"	=> "user token",{{endif}}{{endif}}{{ for label,value in specs.params }}
+
+	"{$label}"	=> "{$value}"{{if loop.last}}{{else}},{{endif}}{{ endfor }}
+	
+));
+</pre>
+<h4>Javascript</h4>
+<pre>
+$.apicall({
+	method:		"{$endpoint}.{$method}",
+	params:		{ {{if specs.auth}}
+{{if specs.auth == "sys"}}
+	
+		authtoken: "{$systoken}",{{endif}}{{if specs.auth == "authtoken"}}
+	
+		authtoken: "user token",{{endif}}{{endif}}{{ for label,value in specs.params }}
+
+		{$label}: "{$value}"{{if loop.last}}{{else}},{{endif}}{{ endfor }}
+	
+	},
+	callback:	function(response) {
+		// Display the api response in the console
+		console.log("api response",response);
+	},
+	onFail:		function(error_message) {
+		// If the API returned an error, we display it
+		$.notify(error_message);
+	}
+});
+</pre>
+<h4>NodeJS</h4>
+<pre>
+Gamify.api.execute("{$endpoint}","{$method}", { {{if specs.auth}}
+{{if specs.auth == "sys"}}
+
+	authtoken: "{$systoken}",{{endif}}{{if specs.auth == "authtoken"}}
+	
+	authtoken: "user token",{{endif}}{{endif}}{{ for label,value in specs.params }}
+	
+	{$label}: "{$value}"{{if loop.last}}{{else}},{{endif}}{{ endfor }}
+	
+}, function(response) {
+	
+});
+</pre>
+						</div>
+						{{ endfor }}
+					</div>
+					{{ endfor }}
+					
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Footer
+		================================================== -->
+		<footer class="bs-footer" role="contentinfo">
+			<div class="container">
+				<div class="bs-social">
+					<ul class="bs-social-buttons">
+						<li>
+							<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+						</li>
+						<li>
+							<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+						</li>
+						<li class="follow-btn">
+							<a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
+						</li>
+						<li class="tweet-btn">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://getbootstrap.com/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
+						</li>
+					</ul>
+				</div>
+
+
+				<p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+				<p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+				<ul class="footer-links">
+					<li><a href="http://getbootstrap.com/2.3.2/">Bootstrap 2.3.2 docs</a></li>
+					<li class="muted">&middot;</li>
+					<li><a href="http://blog.getbootstrap.com">Blog</a></li>
+					<li class="muted">&middot;</li>
+					<li><a href="https://github.com/twbs/bootstrap/issues?state=open">Issues</a></li>
+					<li class="muted">&middot;</li>
+					<li><a href="https://github.com/twbs/bootstrap/releases">Releases</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- JS and analytics only. -->
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+
+		<script src="http://platform.twitter.com/widgets.js"></script>
+		<script src="http://getbootstrap.com/docs-assets/js/holder.js"></script>
+
+		<script src="http://getbootstrap.com/docs-assets/js/application.js"></script>
+
+
+
+		<!-- Analytics
+		================================================== -->
+		<script>
+			var _gauges = _gauges || [];
+			(function() {
+				var t   = document.createElement('script');
+				t.async = true;
+				t.id    = 'gauges-tracker';
+				t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
+				t.src = '//secure.gaug.es/track.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(t, s);
+			})();
+		</script>
+
+
+	</body>
+</html>

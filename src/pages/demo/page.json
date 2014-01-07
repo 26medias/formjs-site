@@ -1,0 +1,25 @@
+{
+	"name":			"demos",
+	"files":		{
+		"simple.html": {
+			"title":	"FormJS - Simple demo",
+			"filename":	"demos/simple.html"
+		},
+		"conditions.html": {
+			"title":	"FormJS - Form with conditions",
+			"filename":	"demos/conditions.html"
+		},
+		"custom-html.html": {
+			"title":	"FormJS - Form with custom rendering",
+			"filename":	"demos/custom-html.html"
+		}
+	},
+	"template":		"main.html",
+	"dependencies":	[
+		"jquery",
+		"bootstrap",
+		"examples",
+		"FormJS",
+		"theme-metro-vibes"
+	]
+}

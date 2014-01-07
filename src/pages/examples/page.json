@@ -1,0 +1,24 @@
+{
+	"name":			"examples",
+	"files":		{
+		"simple.html": 		{
+			"title":	"Simple Example",
+			"filename":	"examples/index.html"
+		},
+		"conditions.html": 	{
+			"title":	"Form with conditions",
+			"filename":	"examples/conditions.html"
+		},
+		"custom-html.html": {
+			"title":	"Custom Form",
+			"filename":	"examples/custom-html.html"
+		}
+	},
+	"template":		"main.html",
+	"dependencies":	[
+		"jquery",
+		"bootstrap",
+		"FormJS",
+		"examples"
+	]
+}
